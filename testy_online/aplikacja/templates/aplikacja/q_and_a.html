@@ -1,0 +1,28 @@
+{% extends 'konto/base.html' %}
+{% load static %}
+
+{% block title %}Rozwiązywanie: {{test_title}}{% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'aplikacja/q_and_a.css' %}">{% endblock %}
+
+{% block main %}
+    {% if q_and_a_list %}
+        <h1>{{test_title}}</h1>
+        <form action="{% url 'konto:send_test' test_id %}" method="post">
+            {% csrf_token %}
+            <ol>
+                {% for q in q_and_a_list %}
+                    {% with cnt=forloop.counter %}
+                    <li>{{q.question_text}}</li>
+                    {% for a in q.answer_set.all %}
+                        <input type="radio" name="choice_{{cnt}}" value="{{a.id}}" required>
+                        {{a.answer_text}}
+                        <br>
+                    {% endfor %}
+                    <br>
+                    {% endwith %}
+                {% endfor %}
+            </ol>
+            <input id="submit" type="submit" value="Zakończ test">
+        </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'konto/base.html' %}
+{% load static %}
+
+{% block title %}Wylogowano {% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'konto/register.css' %}">{% endblock %}
+
+{% block main %}
+    <h1>Wylogowano</h1>
+    <div id="login">
+        <a href="{% url 'konto:login' %}">Zaloguj się</a> ponownie
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'konto/base.html' %}
+{% load static %}
+
+{% block title %}Profil {{ user.username }}{% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'konto/profile.css' %}">{% endblock %}
+
+{% block main %}
+    <h1>Witaj, {{ user.username }}</h1>
+    <br>
+    {% if results %}
+        <h2>Historia testów:</h2>
+        <table id="results_table">
+            <tr>
+                <th>Test</th>
+                <th>Wynik</th>
+                <th>Data</th>
+            </tr>
+            {% for r in results %}
+                <tr>
+                    <td>{{ r.test }}</td>
+                    <td>{{ r.score }}/{{ r.max_score }} ({{ r.percent }})</td>
+                    <td>{{ r.completion_date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h2>Napisz swój pierwszy <a href="{% url 'aplikacja:tests' %}">test</a></h2>
+    {% endif %}
+{% endblock %}

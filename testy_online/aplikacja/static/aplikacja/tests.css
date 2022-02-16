@@ -1,0 +1,43 @@
+* {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#tests {
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+}
+
+.test {
+    width: 30%;
+    margin: 15px 1%;
+    border: 2px solid teal;
+    display: inline-block;
+    transition: all 0.1s linear;
+}
+
+.test:hover {
+    background-color: teal;
+    color: white;
+}
+
+.test:hover > #title {
+    border-bottom: 1px dashed white;
+}
+
+#title {
+    font-size: 22px;
+    padding: 30px 0;
+    border-bottom: 1px dashed teal;
+    text-align: center;
+}
+
+#details {
+    line-height: 28px;
+    padding-bottom: 15px;
+}

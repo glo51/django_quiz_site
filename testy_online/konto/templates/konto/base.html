@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %}
+        {% block style %}{% endblock %}
+        <link rel="stylesheet" type="text/css" href="{% static 'konto/style.css' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'aplikacja/favicon.ico' %}"/>
+    </head>
+
+    <body>
+        <div id="nav">
+            <ul>
+                <li><a href="{% url 'aplikacja:tests' %}">Testy</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'konto:profile' %}">Profil</a></li>
+                <li><a href="{% url 'konto:logout' %}">Wyloguj się</a></li>
+                {% else %}
+                <li><a href="{% url 'konto:login' %}">Zaloguj się</a></li>
+                <li><a href="{% url 'konto:register' %}">Zarejestruj się</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+    </body>
+</html>

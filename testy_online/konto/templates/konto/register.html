@@ -1,0 +1,33 @@
+{% extends 'konto/base.html' %}
+{% load static %}
+
+{% block title %}Rejestracja{% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'konto/register.css' %}">{% endblock %}
+
+{% block main %}
+    <h1>Rejestracja</h1>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div id="left">
+                {{ field.label_tag }}&nbsp
+            </div>
+            <div id="right">
+                {{ field }}
+            </div>
+            {% for e in field.errors %}
+                <div id="error">
+                    {{ e }}
+                    <br>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <br>
+        <input id="submit" type="submit" value="Wyślij">
+    </form>
+    <br><br>
+    <div id="login">
+        Jeśli masz konto, <a href="{% url 'konto:login' %}">zaloguj się</a>
+    </div>
+{% endblock %}
