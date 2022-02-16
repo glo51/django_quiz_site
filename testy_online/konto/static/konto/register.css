@@ -1,0 +1,48 @@
+#message {
+    margin: 25px auto;
+    width: 350px;
+    background-color: teal;
+    color: white;
+}
+
+#left {
+    width: 50%;
+    float: left;
+    text-align: right;
+    line-height: 45px;
+}
+
+#right {
+    width: 50%;
+    float: left;
+    text-align: left;
+    line-height: 45px;
+}
+
+#error {
+    color: red;
+}
+
+input {
+    border: 1px solid teal;
+    border-radius: 2%;
+}
+
+#submit {
+    margin-top: 20px;
+    width: 150px;
+    transition: all 0.1s linear;
+}
+
+#submit:hover {
+    background-color: teal;
+    color: white;
+}
+
+#login, #register {
+    margin-top: 70px;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,32 @@
+{% extends 'konto/base.html' %}
+{% load static %}
+
+{% block title %}Dostępne testy{% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'aplikacja/tests.css' %}">{% endblock %}
+
+{% block main %}
+    {% if tests_list %}
+        <h1>Wszystkie testy</h1>
+        <div id="tests">
+            {% for t in tests_list %}
+                <a href="{% url 'aplikacja:q_and_a' t.id %}">
+                    <div class="test">
+                        <div id="title">
+                            {{ t.title }}
+                        </div>
+                        <br>
+                        <div id="details">
+                            Kategoria: {{ t.category }}
+                            <br>
+                            Pytań: {{ t.questions_number }}
+                            <br>
+                            Trudność: <meter min="1" max="3" value="{{t.difficulty}}" low="1" optimum="2" high="3"></meter>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h1>Brak testów</h1>
+    {% endif %}
+{% endblock %}
