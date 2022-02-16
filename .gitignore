@@ -26,3 +26,4 @@
 /testy_online/konto/migrations/0012_alter_result_completion_date.py
 /testy_online/konto/migrations/__init__.py
 /testy_online/db.sqlite3
+/testy_online/secret_key.txt
